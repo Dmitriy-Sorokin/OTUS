@@ -1,6 +1,11 @@
 from src.Shape import Shape
 
 
+def square(side1, side2):
+    area = 0.5 * side1 * side2
+    return area
+
+
 class Triangle(Shape):
     side1 = None
     side2 = None
@@ -13,11 +18,11 @@ class Triangle(Shape):
         self.side3 = side3
 
 
-triangle = Triangle(1, 2, 3, 4.5, "triangle", 5)
-
-print(triangle.side1)
-print(triangle.side2)
-print(triangle.side3)
+triangle = Triangle(6, 6, 3, area=square(6, 6), name="triangle", perimeter=5)
+#
+# print(triangle.side1)
+# print(triangle.side2)
+# print(triangle.side3)
 print(triangle.area)
-print(triangle.name)
-print(triangle.perimeter)
+# print(triangle.name)
+# print(triangle.perimeter)
