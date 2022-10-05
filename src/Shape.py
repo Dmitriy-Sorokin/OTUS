@@ -3,7 +3,6 @@ class Shape:
     area = None
     perimeter = None
 
-    def __init__(self, area, name, perimeter):
-        self.area = area
+    def __init__(self,  name):
         self.name = name
-        self.perimeter = perimeter
+

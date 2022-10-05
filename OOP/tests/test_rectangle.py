@@ -1,4 +1,4 @@
-from src.rectangle import Rectangle
+from OOP.src.rectangle import Rectangle
 
 
 def test_create_rectangle():
