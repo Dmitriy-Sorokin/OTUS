@@ -1,7 +1,7 @@
 import pytest
 
-from src.figure import Figure
-from src.rectangle import Rectangle
+from OOP.src.figure import Figure
+from OOP.src.rectangle import Rectangle
 
 
 def test_create_instance_figure():
