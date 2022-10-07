@@ -1,3 +1,4 @@
+from src.Circle import circle
 from src.Shape import Shape
 
 
@@ -9,16 +10,19 @@ class Triangle(Shape):
         self.side2 = side2
         self.side3 = side3
 
-    def square(self):
-        square = 0.5 * self.side1 * self.side2
-        return square
+    @property
+    def square(self) -> int:
+        return (self.side1 * self.side2) * 0.5
 
-    def perimeter(self):
-        perimetr = self.side1 + self.side2 + self.side3
-        return perimetr
+    @property
+    def perimeter(self) -> int:
+        return self.side1 + self.side2 + self.side3
 
 
 triangle = Triangle(6, 6, 3, name="triangle")
 
-print(triangle.square())
-print(triangle.perimeter())
+print(triangle.square)
+# print(triangle.perimeter)
+
+
+print(triangle.add_area(circle))

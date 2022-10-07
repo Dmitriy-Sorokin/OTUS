@@ -8,17 +8,17 @@ class Circle(Shape):
         super().__init__(name)
         self.radius = radius
 
-    def square(self):
-        square = math.pi * (self.radius ** 2)
-        return square
+    @property
+    def square(self) -> int:
+        return math.pi * (self.radius ** 2)
 
-    def perimetr(self):
-        perimetr = 2 * math.pi * self.radius
-        return perimetr
+    @property
+    def perimetr(self) -> int:
+        return 2 * math.pi * self.radius
 
 
 circle = Circle(10, "круг")
 
-print(circle.name)
-print(f"Радиус {circle.radius}")
-
+# print(circle.name)
+# print(f"Радиус {circle.radius}"
+print(int(circle.square))
