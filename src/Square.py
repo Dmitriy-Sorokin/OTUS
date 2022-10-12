@@ -11,17 +11,11 @@ class Square(Shape):
         self.side4 = side4
 
     @property
-    def square(self):
-        square = self.side1 * self.side2
-        return square
+    def area(self):
+        return self.side1 * self.side2
 
     @property
     def perimetr(self):
-        perimetr = self.side1 + self.side2 + self.side3 + self.side4
-        return perimetr
+        return self.side1 + self.side2 + self.side3 + self.side4
 
 
-square = Square(5, 5, 5, 5, "square")
-
-print(square.perimetr())
-print(square.square())

@@ -9,16 +9,9 @@ class Circle(Shape):
         self.radius = radius
 
     @property
-    def square(self) -> int:
+    def area(self) -> int:
         return math.pi * (self.radius ** 2)
 
     @property
     def perimetr(self) -> int:
         return 2 * math.pi * self.radius
-
-
-circle = Circle(10, "круг")
-
-# print(circle.name)
-# print(f"Радиус {circle.radius}"
-print(int(circle.square))

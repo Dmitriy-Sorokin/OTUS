@@ -11,18 +11,9 @@ class Rectangle(Shape):
         self.side4 = side4
 
     @property
-    def square(self):
-        square = self.side1 * self.side2
-        return square
+    def area(self):
+        return self.side1 * self.side2
 
     @property
     def perimetr(self):
-        perimetr = self.side1 + self.side2 + self.side3 + self.side4
-        return perimetr
-
-
-rectangle = Rectangle(4, 8, 4, 8, "прямоугольник")
-
-print(rectangle.name)
-print(rectangle.square())
-print(rectangle.perimetr())
+        return self.side1 + self.side2 + self.side3 + self.side4
