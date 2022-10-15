@@ -1,4 +1,4 @@
-from src.Rectangle import Rectangle
+from OOP_lesson3.src.Rectangle import Rectangle
 
 """Create rectangle"""
 

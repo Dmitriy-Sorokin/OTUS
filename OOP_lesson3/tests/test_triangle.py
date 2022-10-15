@@ -1,4 +1,4 @@
-from src.Triangle import Triangle
+from OOP_lesson3.src.Triangle import Triangle
 
 
 def test_create_triangle():

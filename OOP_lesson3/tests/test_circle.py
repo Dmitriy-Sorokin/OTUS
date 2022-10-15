@@ -1,4 +1,4 @@
-from src.Circle import Circle
+from OOP_lesson3.src.Circle import Circle
 
 '''Create circle'''
 

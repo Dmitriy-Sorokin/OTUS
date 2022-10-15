@@ -1,6 +1,6 @@
 import pytest
-from src.Shape import Shape
-from src.Triangle import Triangle
+from OOP_lesson3.src.Shape import Shape
+from OOP_lesson3.src.Triangle import Triangle
 
 
 def test_create_base_shape():

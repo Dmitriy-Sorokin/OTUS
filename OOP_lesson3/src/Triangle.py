@@ -1,4 +1,4 @@
-from src.Shape import Shape
+from OOP_lesson3.src.Shape import Shape
 
 
 class Triangle(Shape):

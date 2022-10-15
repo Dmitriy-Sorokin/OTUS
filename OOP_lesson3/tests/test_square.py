@@ -1,4 +1,4 @@
-from src.Square import Square
+from OOP_lesson3.src.Square import Square
 
 '''Create square'''
 

@@ -1,7 +1,7 @@
-from src.Shape import Shape
+from OOP_lesson3.src.Shape import Shape
 
 
-class Rectangle(Shape):
+class Square(Shape):
 
     def __init__(self, side1, side2, side3, side4, name):
         super().__init__(name)
@@ -17,3 +17,5 @@ class Rectangle(Shape):
     @property
     def perimetr(self):
         return self.side1 + self.side2 + self.side3 + self.side4
+
+
