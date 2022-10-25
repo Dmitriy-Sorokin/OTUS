@@ -16,3 +16,10 @@ jsonschema = "^4.16.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+markers = [
+    "regress: marks tests as slow (deselect with '-m \"not slow\"')",
+    "sec",
+    "auth"
+]
