@@ -1,6 +1,7 @@
 import json
 from requests import Response
 import requests
+import cerberus
 
 '''Methods for checking the responses of our requests'''
 
@@ -32,3 +33,13 @@ class Checking:
         check_field_value = check.get(field_name)
         assert check_field_value == expected_value
         print(field_name + ' TRUE !!!')
+
+    @staticmethod
+    def dog_images_cerberus(response: Response,):
+        schema = {
+            'message': {"type": "list"},
+            'status': {"type": "string"}
+        }
+
+        v = cerberus.Validator()
+        assert v.validate(response.json(), schema)
