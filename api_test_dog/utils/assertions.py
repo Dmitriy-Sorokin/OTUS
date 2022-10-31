@@ -2,6 +2,7 @@ import json
 from requests import Response
 import requests
 import cerberus
+from jsonschema import validate
 
 '''Methods for checking the responses of our requests'''
 
@@ -35,7 +36,7 @@ class Checking:
         print(field_name + ' TRUE !!!')
 
     @staticmethod
-    def dog_images_cerberus(response: Response,):
+    def dog_images_cerberus(response: Response):
         schema = {
             'message': {"type": "list"},
             'status': {"type": "string"}
@@ -43,3 +44,20 @@ class Checking:
 
         v = cerberus.Validator()
         assert v.validate(response.json(), schema)
+
+    @staticmethod
+    def test_dog_random_json_schema(response: Response):
+        """проверка структуры ответа на запрос"""
+        respons = response.json()
+        schema = {
+            "type": "object",
+            "properties": {
+                'message': {"type": "array"},
+                'status': {"type": "string"}
+            },
+            "required": ["message", "status"]
+        }
+
+        validate(instance=response.json(), schema=schema)
+
+        assert respons["status"] == "success"

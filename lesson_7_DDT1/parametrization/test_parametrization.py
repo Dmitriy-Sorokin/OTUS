@@ -20,7 +20,7 @@ def test_one(param1, param2):
 def test_api_empty_response_on_user_id(userid):
     r = requests.get('https://petstore.swagger.io/v2/user/' + userid, )
     print(r.json())
-    assert r.status_code == 200
+    assert r.status_code == 404
 
 
 def test_fixture(param_fixture):

@@ -1,4 +1,7 @@
+import pytest
+
 from api_test_dog.utils.dog_http_methods import Http_methods
+from api_test_dog.tests.conftest import param_fixture
 
 ''' Methods for tests Google_maps_api'''
 
@@ -26,10 +29,11 @@ class Dog_api():
         print(result_get.json())
         return result_get
 
+
     @staticmethod
-    def dog_random():
-        get_resource = "/api/breed/hound/afghan/images/random/1"
-        get_url = base_url + get_resource
+    def dog_random(test_params):
+        get_resource = "/api/breed/hound/afghan/images/random/"
+        get_url = base_url + get_resource + test_params
         print(get_url)
         result_get = Http_methods.get(get_url)
         print(result_get.json())
