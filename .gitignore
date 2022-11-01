@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/
+.idea/.gitignore
+.idea/OTUS.iml
+.idea/inspectionProfiles/Project_Default.xml
