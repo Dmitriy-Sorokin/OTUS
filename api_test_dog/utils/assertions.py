@@ -33,7 +33,7 @@ class Checking:
         check = response.json()
         check_field_value = check.get(field_name)
         assert check_field_value == expected_value
-        print(field_name + ' TRUE !!!')
+        print(expected_value + ' TRUE !!!')
 
     @staticmethod
     def dog_images_cerberus(response: Response):
