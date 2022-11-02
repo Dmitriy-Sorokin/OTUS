@@ -117,3 +117,44 @@ class Brewery:
         result_sort_result_get = Http_methods.get(get_url)
         print(result_sort_result_get.json())
         return result_sort_result_get
+
+    @staticmethod
+    def random_brewery():
+        '''Get a random brewery.'''
+        get_resource = "breweries/random"
+        get_url = base_url + get_resource
+        print(get_url)
+        result_random_brewery_get = Http_methods.get(get_url)
+        print(result_random_brewery_get)
+        return result_random_brewery_get
+
+    @staticmethod
+    def size_brewery():
+        '''Number of breweries to return each call. Note: Default is 1. Max per page is 50.'''
+        get_resource = "breweries/random?size=3"
+        get_url = base_url + get_resource
+        print(get_url)
+        result_size_brewery_get = Http_methods.get(get_url)
+        print(result_size_brewery_get)
+        return result_size_brewery_get
+
+    @staticmethod
+    def search_breweries():
+        '''Search for breweries based on a search term.'''
+        get_resource = "breweries/search?query=dog&per_page=3"
+        get_url = base_url + get_resource
+        print(get_url)
+        result_search_breweries_get = Http_methods.get(get_url)
+        print(result_search_breweries_get)
+        return result_search_breweries_get
+
+    @staticmethod
+    def autocomplete_brewery():
+        '''Return a list of names and ids of breweries based on a search term. This endpoint is typically used for a
+        drop-down selection.The maximum number of breweries returned is 15.'''
+        get_resource = "breweries/autocomplete?query=dog"
+        get_url = base_url + get_resource
+        print(get_url)
+        result_autocomplete_brewery_get = Http_methods.get(get_url)
+        print(result_autocomplete_brewery_get)
+        return result_autocomplete_brewery_get
