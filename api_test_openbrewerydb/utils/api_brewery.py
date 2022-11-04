@@ -19,7 +19,7 @@ class Brewery:
     @staticmethod
     def list_breweries():
         '''Get list brewery'''
-        get_resource = "breweries?per_page=3"
+        get_resource = "breweries?per_page=1"
         get_url = base_url + get_resource
         print(get_url)
         result_list_breweries_get = Http_methods.get(get_url)
