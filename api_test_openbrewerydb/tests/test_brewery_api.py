@@ -49,9 +49,44 @@ def test_lest_breweries():
     Assert.assert_value_field(one_object_resp, "updated_at", "2022-10-30T06:11:39.514Z")
     Assert.assert_value_field(one_object_resp, "created_at", "2022-10-30T06:11:39.514Z")
 
+
 def test_by_city():
     print("\nCheck dog_list status code, fields, fields value")
     get_result: Response = Brewery.filter_breweries_by_city()
     Assert.assert_status_code(get_result, 200)
     Assert.json_schema_by_city(get_result)
+
+
+def test_by_dict():
+    print("\nCheck dog_list status code, fields, fields value")
+    get_result: Response = Brewery.sort_breweries_by_dist()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_by_dict(get_result)
+
+
+def test_by_name():
+    print("\nCheck dog_list status code, fields, fields value")
+    get_result: Response = Brewery.filter_breweries_by_name()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_by_name(get_result)
+
+
+def test_by_state():
+    print("\nCheck dog_list status code, fields, fields value")
+    get_result: Response = Brewery.filter_breweries_by_state()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_by_state(get_result)
+
+
+def test_by_postal():
+    print("\ntest_by_postal Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.filter_breweries_by_postal()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_by_postal(get_result)
+
+def test_by_type():
+    print("\ntest_by_type Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.filter_breweries_by_type()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_by_type(get_result)
 

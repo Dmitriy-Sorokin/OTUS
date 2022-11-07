@@ -69,7 +69,7 @@ class Brewery:
     @staticmethod
     def filter_breweries_by_postal():
         '''Filter breweries by postal code.'''
-        get_resource = "Filter breweries by postal code."
+        get_resource = "breweries?by_postal=44107&per_page=3"
         get_url = base_url + get_resource
         print(get_url)
         result_filter_breweries_by_postal_get = Http_methods.get(get_url)
