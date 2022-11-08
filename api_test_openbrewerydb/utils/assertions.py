@@ -350,3 +350,290 @@ class Assert:
         assert resp["website_url"] is None
         assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
         assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
+
+    @staticmethod
+    def json_schema_page(response: Response):
+        """проверка структуры ответа на запрос"""
+        resp = response.json()[0]
+        schema = {
+            "type": "object",
+            "properties": {
+                'id': {"type": "string"},
+                'name': {"type": "string"},
+                'brewery_type': {"type": "string"},
+                'street': {"type": "null"},
+                'address_2': {"type": "null"},
+                'address_3': {"type": "null"},
+                'city': {"type": "string"},
+                'state': {"type": "string"},
+                'county_province': {"type": "null"},
+                'postal_code': {"type": "string"},
+                'country': {"type": "string"},
+                'longitude': {"type": "string"},
+                'latitude': {"type": "string"},
+                'phone': {"type": "null"},
+                'website_url': {"type": "string"},
+                'updated_at': {"type": "string"},
+                'created_at': {"type": "string"}
+            },
+            "required": ["id", "name", "brewery_type", "street", "city", "state", "postal_code",
+                         "country", "longitude", "latitude", "phone", "website_url", "updated_at", "created_at",
+                         "address_2", "address_3", "county_province"]
+        }
+
+        validate(instance=response.json()[0], schema=schema)
+
+        assert resp["id"] == "1850-brewing-company-mariposa"
+        assert resp["name"] == "1850 Brewing Company"
+        assert resp["brewery_type"] == "micro"
+        assert resp["street"] is None
+        assert resp["city"] == "Mariposa"
+        assert resp["state"] == "California"
+        assert resp["postal_code"] == "95338"
+        assert resp["country"] == "United States"
+        assert resp["longitude"] == "-119.9036592"
+        assert resp["latitude"] == "37.570148"
+        assert resp["phone"] is None
+        assert resp["website_url"] == "http://www.1850restaurant.com"
+        assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
+        assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
+
+    @staticmethod
+    def json_schema_per_page(response: Response):
+        """проверка структуры ответа на запрос"""
+        resp = response.json()[0]
+        schema = {
+            "type": "object",
+            "properties": {
+                'id': {"type": "string"},
+                'name': {"type": "string"},
+                'brewery_type': {"type": "string"},
+                'street': {"type": "string"},
+                'address_2': {"type": "null"},
+                'address_3': {"type": "null"},
+                'city': {"type": "string"},
+                'state': {"type": "string"},
+                'county_province': {"type": "null"},
+                'postal_code': {"type": "string"},
+                'country': {"type": "string"},
+                'longitude': {"type": "string"},
+                'latitude': {"type": "string"},
+                'phone': {"type": "string"},
+                'website_url': {"type": "null"},
+                'updated_at': {"type": "string"},
+                'created_at': {"type": "string"}
+            },
+            "required": ["id", "name", "brewery_type", "street", "city", "state", "postal_code",
+                         "country", "longitude", "latitude", "phone", "website_url", "updated_at", "created_at",
+                         "address_2", "address_3", "county_province"]
+        }
+
+        validate(instance=response.json()[0], schema=schema)
+
+        assert resp["id"] == "10-56-brewing-company-knox"
+        assert resp["name"] == "10-56 Brewing Company"
+        assert resp["brewery_type"] == "micro"
+        assert resp["street"] == "400 Brown Cir"
+        assert resp["city"] == "Knox"
+        assert resp["state"] == "Indiana"
+        assert resp["postal_code"] == "46534"
+        assert resp["country"] == "United States"
+        assert resp["longitude"] == "-86.627954"
+        assert resp["latitude"] == "41.289715"
+        assert resp["phone"] == "6308165790"
+        assert resp["website_url"] is None
+        assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
+        assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
+
+    @staticmethod
+    def json_schema_sort(response: Response):
+        """проверка структуры ответа на запрос"""
+        resp = response.json()[0]
+        schema = {
+            "type": "object",
+            "properties": {
+                'id': {"type": "string"},
+                'name': {"type": "string"},
+                'brewery_type': {"type": "string"},
+                'street': {"type": "string"},
+                'address_2': {"type": "null"},
+                'address_3': {"type": "null"},
+                'city': {"type": "string"},
+                'state': {"type": "string"},
+                'county_province': {"type": "null"},
+                'postal_code': {"type": "string"},
+                'country': {"type": "string"},
+                'longitude': {"type": "string"},
+                'latitude': {"type": "string"},
+                'phone': {"type": "string"},
+                'website_url': {"type": "string"},
+                'updated_at': {"type": "string"},
+                'created_at': {"type": "string"}
+            },
+            "required": ["id", "name", "brewery_type", "street", "city", "state", "postal_code",
+                         "country", "longitude", "latitude", "phone", "website_url", "updated_at", "created_at",
+                         "address_2", "address_3", "county_province"]
+        }
+
+        validate(instance=response.json()[0], schema=schema)
+
+        assert resp["id"] == "16-lots-brewing-mason"
+        assert resp["name"] == "16 Lots Brewing"
+        assert resp["brewery_type"] == "brewpub"
+        assert resp["street"] == "753 Reading Rd"
+        assert resp["city"] == "Mason"
+        assert resp["state"] == "Ohio"
+        assert resp["postal_code"] == "45040-1303"
+        assert resp["country"] == "United States"
+        assert resp["longitude"] == "-84.3183801"
+        assert resp["latitude"] == "39.3545967"
+        assert resp["phone"] == "5134863672"
+        assert resp["website_url"] == "http://www.16lots.com"
+        assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
+        assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
+
+    @staticmethod
+    def json_schema_random_brewery(response: Response):
+        """проверка структуры ответа на запрос"""
+        resp = response.json()[0]
+        schema = {
+            "type": "object",
+            "properties": {
+                'id': {"type": "string"},
+                'name': {"type": "string"},
+                'brewery_type': {"type": "string"},
+                'city': {"type": "string"},
+                'state': {"type": "string"},
+                'postal_code': {"type": "string"},
+                'country': {"type": "string"},
+                'updated_at': {"type": "string"},
+                'created_at': {"type": "string"}
+            },
+            "required": ["id", "name", "brewery_type", "city", "state", "postal_code",
+                         "country", "updated_at", "created_at",
+                         "address_2", "address_3"]
+        }
+
+        validate(instance=response.json()[0], schema=schema)
+
+        assert resp["id"] is not None
+        assert resp["name"] is not None
+        assert resp["brewery_type"] is not None
+        assert resp["city"] is not None
+        assert resp["state"] is not None
+        assert resp["postal_code"] is not None
+        assert resp["country"] is not None
+        assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
+        assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
+
+    @staticmethod
+    def json_schema_size(response: Response):
+        """проверка структуры ответа на запрос"""
+        resp = response.json()[0]
+        schema = {
+            "type": "object",
+            "properties": {
+                'id': {"type": "string"},
+                'name': {"type": "string"},
+                'brewery_type': {"type": "string"},
+                'street': {"type": "null"},
+                'address_2': {"type": "null"},
+                'address_3': {"type": "null"},
+                'city': {"type": "string"},
+                'state': {"type": "string"},
+                'county_province': {"type": "null"},
+                'postal_code': {"type": "string"},
+                'country': {"type": "string"},
+                'longitude': {"type": "string"},
+                'latitude': {"type": "string"},
+                'phone': {"type": "string"},
+                'website_url': {"type": "string"},
+                'updated_at': {"type": "string"},
+                'created_at': {"type": "string"}
+            },
+            "required": ["id", "name", "brewery_type", "street", "city", "state", "postal_code",
+                         "country", "longitude", "latitude", "phone", "website_url", "updated_at", "created_at",
+                         "address_2", "address_3", "county_province"]
+        }
+
+        validate(instance=response.json()[0], schema=schema)
+
+        assert resp["id"] == "assembly-brewing-portland"
+        assert resp["name"] == "Assembly brewing"
+        assert resp["brewery_type"] == "planning"
+        assert resp["street"] is None
+        assert resp["city"] == "Portland"
+        assert resp["state"] == "Oregon"
+        assert resp["postal_code"] == "97206-3739"
+        assert resp["country"] == "United States"
+        assert resp["longitude"] == "-122.60039115981819"
+        assert resp["latitude"] == "45.49104800202504"
+        assert resp["phone"] == "5037299080"
+        assert resp["website_url"] == "http://www.assemblybrewingco.com"
+        assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
+        assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
+
+    @staticmethod
+    def json_schema_search(response: Response):
+        """проверка структуры ответа на запрос"""
+        resp = response.json()[0]
+        schema = {
+            "type": "object",
+            "properties": {
+                'id': {"type": "string"},
+                'name': {"type": "string"},
+                'brewery_type': {"type": "string"},
+                'street': {"type": "null"},
+                'address_2': {"type": "null"},
+                'address_3': {"type": "null"},
+                'city': {"type": "string"},
+                'state': {"type": "string"},
+                'county_province': {"type": "null"},
+                'postal_code': {"type": "string"},
+                'country': {"type": "string"},
+                'longitude': {"type": "null"},
+                'latitude': {"type": "null"},
+                'phone': {"type": "string"},
+                'website_url': {"type": "string"},
+                'updated_at': {"type": "string"},
+                'created_at': {"type": "string"}
+            },
+            "required": ["id", "name", "brewery_type", "street", "city", "state", "postal_code",
+                         "country", "longitude", "latitude", "phone", "website_url", "updated_at", "created_at",
+                         "address_2", "address_3", "county_province"]
+        }
+
+        validate(instance=response.json()[0], schema=schema)
+
+        assert resp["id"] == "barrel-assembly-austin"
+        assert resp["name"] == "Barrel Assembly"
+        assert resp["brewery_type"] == "planning"
+        assert resp["street"] is None
+        assert resp["city"] == "Austin"
+        assert resp["state"] == "Texas"
+        assert resp["postal_code"] == "78751-3019"
+        assert resp["country"] == "United States"
+        assert resp["longitude"] is None
+        assert resp["latitude"] is None
+        assert resp["phone"] == "15124236579"
+        assert resp["website_url"] == "http://www.barrelassembly.com"
+        assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
+        assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
+
+    @staticmethod
+    def json_schema_autocomplete(response: Response):
+        """проверка структуры ответа на запрос"""
+        resp = response.json()[0]
+        schema = {
+            "type": "object",
+            "properties": {
+                'id': {"type": "string"},
+                'name': {"type": "string"}
+            },
+            "required": ["id", "name"]
+        }
+
+        validate(instance=response.json()[0], schema=schema)
+
+        assert resp["id"] == "barrel-assembly-austin"
+        assert resp["name"] == "Barrel Assembly"

@@ -102,9 +102,9 @@ class Brewery:
         get_resource = "breweries?per_page=2"
         get_url = base_url + get_resource
         print(get_url)
-        result_breweries_per_page_get = Http_methods.get(get_url)
-        print(result_breweries_per_page_get.json())
-        return result_breweries_per_page_get
+        get_result = Http_methods.get(get_url)
+        print(get_result.json())
+        return get_result
 
     @staticmethod
     def sort_result():
@@ -125,7 +125,7 @@ class Brewery:
         get_url = base_url + get_resource
         print(get_url)
         result_random_brewery_get = Http_methods.get(get_url)
-        print(result_random_brewery_get)
+        print(result_random_brewery_get.json())
         return result_random_brewery_get
 
     @staticmethod
@@ -135,7 +135,7 @@ class Brewery:
         get_url = base_url + get_resource
         print(get_url)
         result_size_brewery_get = Http_methods.get(get_url)
-        print(result_size_brewery_get)
+        print(result_size_brewery_get.json())
         return result_size_brewery_get
 
     @staticmethod
@@ -145,7 +145,7 @@ class Brewery:
         get_url = base_url + get_resource
         print(get_url)
         result_search_breweries_get = Http_methods.get(get_url)
-        print(result_search_breweries_get)
+        print(result_search_breweries_get.json())
         return result_search_breweries_get
 
     @staticmethod
@@ -156,5 +156,5 @@ class Brewery:
         get_url = base_url + get_resource
         print(get_url)
         result_autocomplete_brewery_get = Http_methods.get(get_url)
-        print(result_autocomplete_brewery_get)
+        print(result_autocomplete_brewery_get.json())
         return result_autocomplete_brewery_get

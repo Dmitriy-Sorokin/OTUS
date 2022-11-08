@@ -84,9 +84,62 @@ def test_by_postal():
     Assert.assert_status_code(get_result, 200)
     Assert.json_schema_by_postal(get_result)
 
+
 def test_by_type():
     print("\ntest_by_type Check dog_list status code, fields, fields value")
     get_result: Response = Brewery.filter_breweries_by_type()
     Assert.assert_status_code(get_result, 200)
     Assert.json_schema_by_type(get_result)
 
+
+def test_page():
+    print("\ntest_by_type Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.breweries_page()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_page(get_result)
+    Assert.range_array_3_page(get_result)
+
+
+def test_per_page():
+    print("\ntest_by_type Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.breweries_per_page()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_per_page(get_result)
+
+
+def test_sort():
+    print("\ntest_by_type Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.sort_result()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_sort(get_result)
+    Assert.range_array_3_page(get_result)
+
+
+def test_random_brewery():
+    print("\ntest_random_brewery Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.random_brewery()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_random_brewery(get_result)
+
+
+def test_size():
+    '''Может фейлится из за рандома апи'''
+    print("\ntest_size Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.size_brewery()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_size(get_result)
+
+
+def test_search():
+    print("\ntest_search Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.search_breweries()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_search(get_result)
+    Assert.range_array_3_page(get_result)
+
+
+def test_autocomplete():
+    print("\ntest_search Check dog_list status code, fields, fields value")
+    get_result: Response = Brewery.autocomplete_brewery()
+    Assert.assert_status_code(get_result, 200)
+    Assert.json_schema_autocomplete(get_result)
