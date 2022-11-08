@@ -3,7 +3,6 @@ import pytest
 from api_test_dog.utils.dog_http_methods import Http_methods
 from api_test_dog.tests.conftest import param_fixture
 
-''' Methods for tests Google_maps_api'''
 
 base_url = "https://dog.ceo"
 
