@@ -1,31 +1,31 @@
 from api_test_openbrewerydb.utils.api_brewery import Brewery
 from api_test_openbrewerydb.utils.assertions import Assert
-import pytest
 from requests import Response
 
 
 def test_single_brewery():
     print("\nCheck dog_list status code, fields, fields value")
     get_result: Response = Brewery.single_brewery()
+    get_result_js = get_result.json()
     Assert.assert_status_code(get_result, 200)
     Assert.assert_expected_field(get_result, ["id", "name", "brewery_type", "street", "address_2", "address_3",
                                               "city", "state", "county_province", "postal_code", "country",
                                               "longitude", "latitude", "phone", "website_url", "updated_at",
                                               "created_at"])
-    Assert.assert_value_field(get_result, "id", "madtree-brewing-cincinnati")
-    Assert.assert_value_field(get_result, "name", "MadTree Brewing")
-    Assert.assert_value_field(get_result, "brewery_type", "regional")
-    Assert.assert_value_field(get_result, "street", "3301 Madison Rd")
-    Assert.assert_value_field(get_result, "city", "Cincinnati")
-    Assert.assert_value_field(get_result, "state", "Ohio")
-    Assert.assert_value_field(get_result, "postal_code", "45209-1132")
-    Assert.assert_value_field(get_result, "country", "United States")
-    Assert.assert_value_field(get_result, "longitude", "-84.4239715")
-    Assert.assert_value_field(get_result, "latitude", "39.1563725")
-    Assert.assert_value_field(get_result, "phone", "5138368733")
-    Assert.assert_value_field(get_result, "website_url", "http://www.madtreebrewing.com")
-    Assert.assert_value_field(get_result, "updated_at", "2022-10-30T06:11:39.514Z")
-    Assert.assert_value_field(get_result, "created_at", "2022-10-30T06:11:39.514Z")
+    Assert.assert_value_field(get_result_js, "id", "madtree-brewing-cincinnati")
+    Assert.assert_value_field(get_result_js, "name", "MadTree Brewing")
+    Assert.assert_value_field(get_result_js, "brewery_type", "regional")
+    Assert.assert_value_field(get_result_js, "street", "3301 Madison Rd")
+    Assert.assert_value_field(get_result_js, "city", "Cincinnati")
+    Assert.assert_value_field(get_result_js, "state", "Ohio")
+    Assert.assert_value_field(get_result_js, "postal_code", "45209-1132")
+    Assert.assert_value_field(get_result_js, "country", "United States")
+    Assert.assert_value_field(get_result_js, "longitude", "-84.4239715")
+    Assert.assert_value_field(get_result_js, "latitude", "39.1563725")
+    Assert.assert_value_field(get_result_js, "phone", "5138368733")
+    Assert.assert_value_field(get_result_js, "website_url", "http://www.madtreebrewing.com")
+    Assert.assert_value_field(get_result_js, "updated_at", "2022-10-30T06:11:39.514Z")
+    Assert.assert_value_field(get_result_js, "created_at", "2022-10-30T06:11:39.514Z")
 
 
 def test_lest_breweries():
@@ -122,10 +122,10 @@ def test_random_brewery():
     Assert.json_schema_random_brewery(get_result)
 
 
-def test_size():
+def test_size(base_url_2):
     '''Может фейлится из за рандома апи'''
     print("\ntest_size Check dog_list status code, fields, fields value")
-    get_result: Response = Brewery.size_brewery()
+    get_result: Response = Brewery.size_brewery(base_url_2)
     Assert.assert_status_code(get_result, 200)
     Assert.json_schema_size(get_result)
 
