@@ -129,10 +129,8 @@ class Brewery:
         return result_random_brewery_get
 
     @staticmethod
-    def size_brewery():
+    def size_brewery(get_url):
         '''Number of breweries to return each call. Note: Default is 1. Max per page is 50.'''
-        get_resource = "breweries/random?size=3"
-        get_url = base_url + get_resource
         print(get_url)
         result_size_brewery_get = Http_methods.get(get_url)
         print(result_size_brewery_get.json())

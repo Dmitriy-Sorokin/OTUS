@@ -536,7 +536,6 @@ class Assert:
                 'id': {"type": "string"},
                 'name': {"type": "string"},
                 'brewery_type': {"type": "string"},
-                'street': {"type": "null"},
                 'address_2': {"type": "null"},
                 'address_3': {"type": "null"},
                 'city': {"type": "string"},
@@ -544,34 +543,17 @@ class Assert:
                 'county_province': {"type": "null"},
                 'postal_code': {"type": "string"},
                 'country': {"type": "string"},
-                'longitude': {"type": "string"},
-                'latitude': {"type": "string"},
                 'phone': {"type": "string"},
                 'website_url': {"type": "string"},
                 'updated_at': {"type": "string"},
                 'created_at': {"type": "string"}
             },
-            "required": ["id", "name", "brewery_type", "street", "city", "state", "postal_code",
-                         "country", "longitude", "latitude", "phone", "website_url", "updated_at", "created_at",
+            "required": ["id", "name", "brewery_type", "city", "state", "postal_code",
+                         "country", "phone", "website_url", "updated_at", "created_at",
                          "address_2", "address_3", "county_province"]
         }
 
         validate(instance=response.json()[0], schema=schema)
-
-        assert resp["id"] == "assembly-brewing-portland"
-        assert resp["name"] == "Assembly brewing"
-        assert resp["brewery_type"] == "planning"
-        assert resp["street"] is None
-        assert resp["city"] == "Portland"
-        assert resp["state"] == "Oregon"
-        assert resp["postal_code"] == "97206-3739"
-        assert resp["country"] == "United States"
-        assert resp["longitude"] == "-122.60039115981819"
-        assert resp["latitude"] == "45.49104800202504"
-        assert resp["phone"] == "5037299080"
-        assert resp["website_url"] == "http://www.assemblybrewingco.com"
-        assert resp["updated_at"] == "2022-10-30T06:11:39.514Z"
-        assert resp["created_at"] == "2022-10-30T06:11:39.514Z"
 
     @staticmethod
     def json_schema_search(response: Response):
