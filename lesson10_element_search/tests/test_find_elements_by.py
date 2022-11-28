@@ -1,5 +1,7 @@
 import time
 
+from selenium.webdriver.common.by import By
+
 
 def test_main_page_menu(browser):
     time.sleep(1)  # Пауза для демонстрации
@@ -15,7 +17,8 @@ def test_main_page_fetured_items(browser):
 
 def test_main_page_footer_blocks(browser):
     time.sleep(1)  # Пауза для демонстрации
-    footer_blocks = browser.find_elements_by_xpath("//footer//ul")
+    footer_blocks = browser.find_elements(By.XPATH, "//footer//ul")
+    print(len(footer_blocks))
     result = footer_blocks[0].location_once_scrolled_into_view
     time.sleep(1)  # Пауза для демонстрации
     assert len(footer_blocks) == 4, "Неверное количество списков ссылок в футере"
