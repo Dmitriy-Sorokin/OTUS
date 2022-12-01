@@ -1,11 +1,14 @@
 import time
 import os
 
-from lesson12_WebElement.config import CHROMEDRIVER
+
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-chrome = webdriver.Chrome(executable_path=CHROMEDRIVER)
+
+chrome = driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
 
 chrome.get("https://konflic.github.io/examples/editor/index.html")
 

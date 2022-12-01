@@ -1,4 +1,4 @@
-from .CommonSelectors import css
+from lesson12_WebElement.locators.CommonSelectors import css
 
 
 class CatalogPage:

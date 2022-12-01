@@ -1,4 +1,4 @@
-from .CommonSelectors import css, partial_link, link_text
+from lesson12_WebElement.locators.CommonSelectors import css, partial_link, link_text
 
 
 class MainPage:

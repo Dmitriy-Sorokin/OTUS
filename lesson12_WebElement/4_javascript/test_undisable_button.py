@@ -23,11 +23,11 @@ def test_disabled_button(browser):
     js_code = "$('#disabled')[0].disabled = false;"
     browser.execute_script(js_code)
 
-    time.sleep(1)  # Для демонстрации
+    time.sleep(2)  # Для демонстрации
 
     dis_btn.click()
 
-    time.sleep(1)  # Для демонстрации
+    time.sleep(2)  # Для демонстрации
 
     # Проверяем что видна модалка
     WebDriverWait(browser, 3).until(EC.visibility_of(browser.find_element(By.ID, "myModal")))

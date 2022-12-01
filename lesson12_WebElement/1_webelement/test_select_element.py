@@ -1,12 +1,13 @@
 import time
 
-from lesson12_WebElement.locators import MainPage, CatalogPage
+from lesson12_WebElement.locators.MainPage import MainPage
+from lesson12_WebElement.locators.CatalogPage import CatalogPage
 from selenium.webdriver.support.select import Select
 from selenium.webdriver import ActionChains
 
 
 def test_select_value(browser):
-    browser.get("https://demo.opencart.com/")
+    browser.get("https://demo.opencart.com/index.php?route=product/category&language=en-gb&path=20")
     desktops_link = browser.find_element(*MainPage.menu.desktops.link)
 
     time.sleep(2)
