@@ -1,7 +1,15 @@
 import pytest
+import os
+
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromiumService
+from selenium.webdriver.firefox.service import Service as FFService
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver import Chrome, Firefox, Remote
+from selenium.webdriver.chrome.service import Service
+
+'''Lesson9_Selenium'''
 
 
 def pytest_addoption(parser):
@@ -25,10 +33,17 @@ def browser(request):
     driver = None
 
     if _browser == "chrome":
-        # driver = webdriver.Chrome(executable_path="c:\soft\drivers\chromedriver")
-        driver = Chrome(executable_path=ChromeDriverManager().install())
+        options = webdriver.ChromeOptions()
+        if headless:
+            options.headless = True
+        # driver = webdriver.Chrome(executable_path="c:\soft\drivers\chromedriver", driver.maximize_window())
+        driver = Chrome(executable_path=ChromeDriverManager().install(), options=options)
     elif _browser == "firefox":
-        driver = webdriver.Firefox(executable_path="c:\soft\drivers\geckodriver")
+        options = webdriver.FirefoxOptions()
+        if headless:
+            options.headless = True
+        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
+        # driver = webdriver.Firefox(executable_path="c:\soft\drivers\geckodriver")
 
     if maximized:
         driver.maximize_window()
