@@ -1,6 +1,6 @@
 import time
 
-from config import CHROMEDRIVER
+from lesson13_windows_iframe.config import CHROMEDRIVER
 from selenium import webdriver
 
 chrome = webdriver.Chrome(CHROMEDRIVER)

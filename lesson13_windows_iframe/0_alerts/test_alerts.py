@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
-from config import CHROMEDRIVER, GECKODRIVER
+from lesson13_windows_iframe.config import CHROMEDRIVER, GECKODRIVER
 import selenium.webdriver.support.expected_conditions as EC
 
 
