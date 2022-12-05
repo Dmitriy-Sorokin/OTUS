@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 class Register:
     MY_ACCOUNT = (By.CSS_SELECTOR, "#top-links > ul > li.dropdown > a > span.caret")
     REG = (By.CSS_SELECTOR, "#top-links > ul > li.dropdown.open > ul > li:nth-child(1) > a")
-    ELEMENT_BLOCK = (By.XPATH, "//*[@id='column-right']/div")  # 13 elements
+    ELEMENT_BLOCK = (By.CSS_SELECTOR, ".list-group a")  # 13 elements
     FIRST_NAME = (By.CSS_SELECTOR, "#input-firstname")
     LAST_NAME = (By.CSS_SELECTOR, "#input-lastname")
     E_MAIL = (By.CSS_SELECTOR, "#input-email")
