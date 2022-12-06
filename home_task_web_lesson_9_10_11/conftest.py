@@ -2,6 +2,7 @@ import pytest
 
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.chrome.service import Service
 
 
 def pytest_addoption(parser):
@@ -22,13 +23,13 @@ def browser(request):
         options = webdriver.ChromeOptions()
         if headless:
             options.headless = True
-        driver = webdriver.Chrome(executable_path="c:\soft\drivers\chromedriver", options=options)
+        driver = webdriver.Chrome(service=Service("c:\soft\drivers\chromedriver"), options=options)
         driver.maximize_window()
     elif _browser == "firefox":
         options = webdriver.FirefoxOptions()
         if headless:
             options.headless = True
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
+        driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
         driver.maximize_window()
     else:
         raise Exception("Driver not supported")

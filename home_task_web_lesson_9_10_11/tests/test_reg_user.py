@@ -19,5 +19,5 @@ def test_reg_user(browser):
     browser.find_element(*Register.PASS_INP)
     browser.find_element(*Register.PASS_CONF)
     browser.find_element(*Register.P_POLICY)
-    browser.find_element(*Register.BTN_CONTINUE)
+    WebDriverWait(browser, 3).until(EC.element_to_be_clickable(Register.BTN_CONTINUE))
     time.sleep(2)
