@@ -1,5 +1,5 @@
 import time
-from home_task_web_lesson_9_10_11.page_obgect.register_user import Register
+from home_task_web_lesson_9_10_11.page_object.register_user import Register
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
