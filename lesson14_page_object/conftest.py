@@ -1,10 +1,9 @@
 import pytest
-import os
 import mysql.connector
 
 from selenium import webdriver
-
-DRIVERS = os.path.expanduser("~/Downloads/drivers")
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 
 def pytest_addoption(parser):
@@ -27,10 +26,9 @@ def browser(request):
     common_caps = {"pageLoadStrategy": "eager"}
 
     if executor == "local":
-        driver = webdriver.Chrome(
-            executable_path=f"{DRIVERS}/chromedriver",
-            desired_capabilities=common_caps
-        )
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),
+                                  desired_capabilities=common_caps
+                                  )
     else:
 
         desired_capabilities = {
