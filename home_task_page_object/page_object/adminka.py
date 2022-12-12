@@ -29,13 +29,14 @@ class Admin(BasePage):
         self._click(self.BTN_LOGIN)
         error = self.browser.find_element(*self.ERROR_TEXT).text
         text = str(error.replace("×", ""))[0:-1]
-        # assert text == str(
-        #     "Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour or reset password.")
+        assert text == str("No match for Username and/or Password.")
         self._click(self.CLOSE_ALERT)
 
 
     def login_in_adminka(self, username, password):
         self.get_param_url("/admin/")
+        self._element(self.INPUT_USERNAME).clear()
         self._element(self.INPUT_USERNAME).send_keys(username)
+        self._element(self.INPUT_PASSWORD).clear()
         self._element(self.INPUT_PASSWORD).send_keys(password)
         self._click(self.BTN_LOGIN)
