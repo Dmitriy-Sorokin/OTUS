@@ -1,5 +1,6 @@
 import time
-from home_task_web_lesson_9_10_11.page_obgect.adminka import Admin
+
+from home_task_web_lesson_9_10_11.page_object.adminka import Admin
 
 
 def test_adminka(browser):

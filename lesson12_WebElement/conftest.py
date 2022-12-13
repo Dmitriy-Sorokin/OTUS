@@ -3,6 +3,7 @@ import logging
 
 from config import CHROMEDRIVER
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 
 logging.basicConfig(level=logging.ERROR)
 

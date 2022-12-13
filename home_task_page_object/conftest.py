@@ -9,14 +9,14 @@ def pytest_addoption(parser):
     parser.addoption("--maximized", action="store_true", help="Maximize browser windows")
     parser.addoption("--headless", action="store_true", help="Run headless")
     parser.addoption("--browser", action="store", default="chrome", choices=["chrome", "firefox"])
-    parser.addoption("--url", action="store", default="http://10.48.67.16:8081")
+    # parser.addoption("--url", action="store", default="http://10.48.67.16:8081")
+    parser.addoption("--url", action="store", default="http://192.168.0.112:8081")
 
 
 @pytest.fixture
 def browser(request):
     _browser = request.config.getoption("--browser")
     headless = request.config.getoption("--headless")
-    maximized = request.config.getoption("--maximized")
     url = request.config.getoption("--url")
 
     if _browser == "chrome":

@@ -37,12 +37,12 @@ def browser(request):
         if headless:
             options.headless = True
         # driver = webdriver.Chrome(executable_path="c:\soft\drivers\chromedriver", driver.maximize_window())
-        driver = Chrome(executable_path=ChromeDriverManager().install(), options=options)
+        driver = Chrome(service=Service(ChromeDriverManager().install()), options=options)
     elif _browser == "firefox":
         options = webdriver.FirefoxOptions()
         if headless:
             options.headless = True
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
+        driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
         # driver = webdriver.Firefox(executable_path="c:\soft\drivers\geckodriver")
 
     if maximized:

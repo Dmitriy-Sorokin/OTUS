@@ -1,5 +1,5 @@
 import time
-from home_task_web_lesson_9_10_11.page_obgect.product_card import ProductCart
+from home_task_web_lesson_9_10_11.page_object.product_card import ProductCart
 
 
 def test_find_element_product_card(browser):

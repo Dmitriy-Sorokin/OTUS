@@ -1,14 +1,17 @@
 import time
-from home_task_web_lesson_9_10_11.page_obgect.register_user import Register
+from home_task_web_lesson_9_10_11.page_object.register_user import Register
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 def test_reg_user(browser):
     acc = browser.find_element(*Register.MY_ACCOUNT)
     acc.click()
     time.sleep(2)
-    reg = browser.find_element(*Register.REG)
+    reg = WebDriverWait(browser, 3).until(EC.visibility_of_element_located(Register.REG))
     reg.click()
-    browser.find_elements(*Register.ELEMENT_BLOCK)
+    elem = browser.find_elements(*Register.ELEMENT_BLOCK)
+    assert len(elem) == 13
     browser.find_element(*Register.FIRST_NAME)
     browser.find_element(*Register.LAST_NAME)
     browser.find_element(*Register.E_MAIL)
@@ -16,5 +19,5 @@ def test_reg_user(browser):
     browser.find_element(*Register.PASS_INP)
     browser.find_element(*Register.PASS_CONF)
     browser.find_element(*Register.P_POLICY)
-    browser.find_element(*Register.BTN_CONTINUE)
+    WebDriverWait(browser, 3).until(EC.element_to_be_clickable(Register.BTN_CONTINUE))
     time.sleep(2)
