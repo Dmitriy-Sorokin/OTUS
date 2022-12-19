@@ -8,7 +8,7 @@ from browsermobproxy import Server, Client
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-DRIVERS = os.path.expanduser("~/Downloads/drivers")
+DRIVERS = os.path.expanduser("c:\Soft\drivers")
 
 
 @pytest.fixture

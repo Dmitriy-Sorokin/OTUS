@@ -5,7 +5,7 @@ import logging
 
 from selenium import webdriver
 
-DRIVERS = os.path.expanduser("~/Downloads/drivers")
+DRIVERS = os.path.expanduser("c:\Soft\drivers")
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
