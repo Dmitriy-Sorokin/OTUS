@@ -77,6 +77,14 @@ python-versions = "*"
 pycparser = "*"
 
 [[package]]
+name = "chainmap"
+version = "1.0.3"
+description = "Backport/clone of ChainMap for py26, py32, and pypy3."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "charset-normalizer"
 version = "2.1.1"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
@@ -94,6 +102,14 @@ description = "Cross-platform colored terminal text."
 category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+
+[[package]]
+name = "combomethod"
+version = "1.0.12"
+description = "Decorator indicating a method is both a class and an instance method"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "config"
@@ -207,6 +223,28 @@ description = "Python interface to MySQL"
 category = "main"
 optional = false
 python-versions = ">=3.5"
+
+[[package]]
+name = "nulltype"
+version = "2.3.1"
+description = "Null values and sentinels like (but not) None, False & True"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "options"
+version = "1.4.10"
+description = "Simple, super-flexible options. Does magic upon request."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+chainmap = ">=1.0.3,<1.1.0"
+combomethod = ">=1.0.12,<1.1.0"
+nulltype = ">=2.3.1,<2.4.0"
+six = ">=1.12.0,<1.13.0"
 
 [[package]]
 name = "outcome"
@@ -423,11 +461,11 @@ testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (
 
 [[package]]
 name = "six"
-version = "1.16.0"
+version = "1.12.0"
 description = "Python 2 and 3 compatibility utilities"
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+python-versions = ">=2.6, !=3.0.*, !=3.1.*"
 
 [[package]]
 name = "sniffio"
@@ -545,7 +583,7 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "cb062e892bb2c218c286963c7e657d29377fd805d396398f25b40df4a7c563f5"
+content-hash = "6ca7d285d2505f382ec9f3afc9e79b7aba787b410506650079deb7791a6a27e3"
 
 [metadata.files]
 allure-pytest = [
@@ -637,6 +675,10 @@ cffi = [
     {file = "cffi-1.15.1-cp39-cp39-win_amd64.whl", hash = "sha256:70df4e3b545a17496c9b3f41f5115e69a4f2e77e94e1d2a8e1070bc0c38c8a3c"},
     {file = "cffi-1.15.1.tar.gz", hash = "sha256:d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"},
 ]
+chainmap = [
+    {file = "chainmap-1.0.3-py3-none-any.whl", hash = "sha256:22b6ccf38698c0356e65e5dfa49c98fb16e3408928b95d90e2332e2fb787988e"},
+    {file = "chainmap-1.0.3.tar.gz", hash = "sha256:e42aaa4b3e2f66102a11bfd563069704bfbfd84fdcb517b564effd736bf53cd9"},
+]
 charset-normalizer = [
     {file = "charset-normalizer-2.1.1.tar.gz", hash = "sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845"},
     {file = "charset_normalizer-2.1.1-py3-none-any.whl", hash = "sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f"},
@@ -644,6 +686,10 @@ charset-normalizer = [
 colorama = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
+]
+combomethod = [
+    {file = "combomethod-1.0.12-py2.py3-none-any.whl", hash = "sha256:0e578ad7158f241cd70a9cbcfef07d6ee7a2f9b60f49b485c7ebd2477059ecc7"},
+    {file = "combomethod-1.0.12.zip", hash = "sha256:4975b436ffe3e0a2561b58e3e9d047a50f4b16c8d4956d6a3e6ce566d034dd5e"},
 ]
 config = [
     {file = "config-0.5.1-py2.py3-none-any.whl", hash = "sha256:79ffa009ff2663cc8ca29e56bcec031c044609d4bafaa4f884132a413101ce84"},
@@ -717,6 +763,14 @@ mysqlclient = [
     {file = "mysqlclient-2.1.1-pp38-pypy38_pp73-win_amd64.whl", hash = "sha256:996924f3483fd36a34a5812210c69e71dea5a3d5978d01199b78b7f6d485c855"},
     {file = "mysqlclient-2.1.1-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:dea88c8d3f5a5d9293dfe7f087c16dd350ceb175f2f6631c9cf4caf3e19b7a96"},
     {file = "mysqlclient-2.1.1.tar.gz", hash = "sha256:828757e419fb11dd6c5ed2576ec92c3efaa93a0f7c39e263586d1ee779c3d782"},
+]
+nulltype = [
+    {file = "nulltype-2.3.1-py2.py3-none-any.whl", hash = "sha256:16ae565745118e37e0558441f5821c76351d8c3a789640b5bca277cf65b2271b"},
+    {file = "nulltype-2.3.1.zip", hash = "sha256:64aa3cb2ab5e904d1b37175b9b922bea268c13f9ce32e3d373313150ab5ef272"},
+]
+options = [
+    {file = "options-1.4.10-py3-none-any.whl", hash = "sha256:9625e2fdde840e45a385739fae2504f432a58002e3857fa63b1bada66c317bc6"},
+    {file = "options-1.4.10.tar.gz", hash = "sha256:8bfdf4f11613181880fdb8bfc7fce3717c961d495b42ab605baf1b7c94e821aa"},
 ]
 outcome = [
     {file = "outcome-1.2.0-py2.py3-none-any.whl", hash = "sha256:c4ab89a56575d6d38a05aa16daeaa333109c1f96167aba8901ab18b6b5e0f7f5"},
@@ -862,8 +916,8 @@ setuptools = [
     {file = "setuptools-65.6.0.tar.gz", hash = "sha256:d1eebf881c6114e51df1664bc2c9133d022f78d12d5f4f665b9191f084e2862d"},
 ]
 six = [
-    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
-    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+    {file = "six-1.12.0-py2.py3-none-any.whl", hash = "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c"},
+    {file = "six-1.12.0.tar.gz", hash = "sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"},
 ]
 sniffio = [
     {file = "sniffio-1.3.0-py3-none-any.whl", hash = "sha256:eecefdce1e5bbfb7ad2eeaabf7c1eeb404d7757c379bd1f7e5cce9d8bf425384"},
