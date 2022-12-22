@@ -1,4 +1,4 @@
-from page_objects.HabrObject import HabrObject
+from lesson18_Allure.page_objects.HabrObject import HabrObject
 
 
 def test_post_open(driver):

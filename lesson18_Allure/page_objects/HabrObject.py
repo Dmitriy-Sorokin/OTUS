@@ -1,4 +1,4 @@
-from page_objects.BasePage import BasePage
+from lesson18_Allure.page_objects.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 
