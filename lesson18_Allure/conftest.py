@@ -6,6 +6,8 @@ import requests
 import allure
 import time
 import json
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 from selenium import webdriver
 
@@ -73,7 +75,7 @@ def driver(request):
             command_executor=executor_url
         )
     else:
-        driver = webdriver.Chrome(executable_path=os.path.expanduser("~/Downloads/drivers/chromedriver"))
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     # Attach browser data
     allure.attach(
