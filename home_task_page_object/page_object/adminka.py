@@ -13,7 +13,7 @@ class Admin(BasePage):
     CLOSE_ALERT = (By.CSS_SELECTOR, "#content > div > div > div > div > div.panel-body > div > button")
     PANEL_FORGOT_PASSWORD = (By.CSS_SELECTOR, ".panel-title")
     LABEL_EMAIL = (By.CSS_SELECTOR, "#content > div > div > div > div > div.panel-body > form > div.form-group > label")
-    INPUT_EMAIL = (By.ID, "#input-email")
+    INPUT_EMAIL = (By.CSS_SELECTOR, ".form-control")
     RESET_BTN = (By.CSS_SELECTOR, ".btn-primary")
     ALERT_WARNING = (By.CSS_SELECTOR, ".alert-danger")
     CLOSE_ALERT_WARNING = (By.CSS_SELECTOR, ".close")
@@ -58,4 +58,14 @@ class Admin(BasePage):
         self._verify_element_present(self.CANSEL_BTN)
 
     def input_incorrect_data_for_email(self, email):
-        pass
+        self.get_param_url("/admin/")
+        self._click(self.LINK_FORGOT)
+        self._element(self.INPUT_EMAIL).clear()
+        self._element(self.INPUT_EMAIL).send_keys(email)
+        self._click(self.RESET_BTN)
+        text_warning = self.browser.find_element(*self.ALERT_WARNING).text
+        text = str(text_warning.replace("×", ""))[0:-1]
+        error_text = "Warning: The E-Mail Address was not found in our records, please try again!"
+        self._click(self.CLOSE_ALERT_WARNING)
+        assert text == error_text
+
