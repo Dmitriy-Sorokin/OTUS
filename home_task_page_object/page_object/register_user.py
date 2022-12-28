@@ -37,7 +37,7 @@ class Register(BasePage):
         self._verify_element_present(self.PASS_INP)
         self._verify_element_present(self.PASS_CONF)
         self._verify_element_present(self.P_POLICY)
-        self._verify_element_present(self.BTN_CONTINUE).click()
+        self._click(self.BTN_CONTINUE)
         alert_text = self.browser.find_element(*self.ALERT_DANGER).text
         expected_text = "Warning: You must agree to the Privacy Policy!"
         assert alert_text == expected_text
@@ -45,9 +45,9 @@ class Register(BasePage):
 
     def checked_input_not_correctly_data(self):
         random_words = RandomWords()
-        self._verify_element_present(self.MY_ACCOUNT).click()
+        self._click(self.MY_ACCOUNT)
         time.sleep(1)
-        self._verify_element_present(self.REG).click()
+        self._click(self.REG)
         time.sleep(1)
         self._element(self.FIRST_NAME).clear()
         self._element(self.FIRST_NAME).send_keys("first_name")
