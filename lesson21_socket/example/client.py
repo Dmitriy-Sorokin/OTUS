@@ -1,7 +1,7 @@
 import socket
 import sys
 
-HOST = "127.0.0.1"
+HOST = "192.168.0.112"
 PORT = None
 
 try:

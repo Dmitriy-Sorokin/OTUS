@@ -1,7 +1,7 @@
 import socket
 import sys
 
-from config import LOCALHOST
+from lesson21_socket.config import LOCALHOST
 
 # Define this target port
 my_socket = socket.socket()

@@ -1,6 +1,6 @@
 import socket
 
-from config import LOCALHOST, random_port
+from lesson21_socket.config import LOCALHOST, random_port
 
 my_socket = socket.socket()
 address_and_port = (LOCALHOST, random_port())

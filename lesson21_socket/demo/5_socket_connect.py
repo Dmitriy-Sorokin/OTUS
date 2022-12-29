@@ -1,7 +1,7 @@
 import socket
 import sys
 
-from config import LOCALHOST
+from lesson21_socket.config import LOCALHOST
 
 my_socket = socket.socket()
 
