@@ -4,7 +4,7 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG)
 
-HOST = "192.168.0.112"
+HOST = "127.0.0.1"
 PORT = random.randint(10000, 20000)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
